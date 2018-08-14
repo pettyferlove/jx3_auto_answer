@@ -2,10 +2,6 @@ import tkinter
 from PIL import ImageGrab
 from answer.common.data import qst
 import win32api
-
-def hello_call_back():
-    print("Hello Python", "Hello Runoob")
-from PIL import Image
 from win32api import GetSystemMetrics
 from answer.api.OcrApi import query_api
 from io import BytesIO
