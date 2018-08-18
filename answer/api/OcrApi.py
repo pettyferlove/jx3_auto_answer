@@ -16,7 +16,8 @@ logging.basicConfig(level=logging.DEBUG,
 
 
 def query_api(data):
-    global text
+    global text, result_list
+    result_list = []
     nonce_str = str(uuid.uuid4()).replace('-', '')
     data = base64.b64encode(data)
     app_id = 2107761575
@@ -43,5 +44,11 @@ def query_api(data):
     else:
         text = ''
         for item in temp['data']['item_list']:
+            result_map = []
+            result_map = dict(result_map)
+            result_map['itemstring'] = item['itemstring']
+            result_map['itemcoord'] = item['itemcoord']
             text += item['itemstring']
-    return text
+            result_list.append(result_map)
+    print(text)
+    return result_list
